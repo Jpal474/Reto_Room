@@ -16,7 +16,7 @@ class MainAdapter (private val users: List<User>): RecyclerView.Adapter<MainAdap
         holder.render(users[position])
     }
 
-    override fun getItemCount(): Int = users.count()
+    override fun getItemCount(): Int = users.size
 
     class MainHolder(val binding: ItemUserBinding): RecyclerView.ViewHolder(binding.root){
         fun render(user: User){
