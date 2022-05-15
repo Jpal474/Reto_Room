@@ -18,7 +18,7 @@ class MainViewModel: ViewModel() {
     fun deleteUser(user: User){
         viewModelScope.launch{
             val userDao = DatabaseManager.instance.database.userDao()
-            MyCoroutines(userDao).delte(user)
+            MyCoroutines(userDao).delete(user)
         }
     }
     val savedUsers = MutableLiveData<List<User>>()

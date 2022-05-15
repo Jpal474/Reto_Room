@@ -18,9 +18,10 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.btnUser.setOnClickListener {
+
             instancia.saveUser(User(
                 0,
-                binding.etUserAmount.text.toString()
+                user_name = binding.etUserAmount.text.toString()+"",
             ))
            // cont++
             Log.d("prueba", "datos del edit")
@@ -32,7 +33,13 @@ class MainActivity : AppCompatActivity() {
         instancia.getUsers()
         instancia.savedUsers.observe(this){usersList ->
             if(!usersList.isNullOrEmpty()){
-                binding.rvUserEntries.adapter = MainAdapter(usersList)
+                for(user in usersList){
+                    Log.d("thesearetheusers", user.user_name)
+
+                    binding.rvUserEntries.adapter = MainAdapter(usersList)
+                }
+
+
             }else {
                 Log.d("users", "null or empty")
             }

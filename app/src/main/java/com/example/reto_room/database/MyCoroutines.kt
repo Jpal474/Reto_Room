@@ -9,7 +9,7 @@ class MyCoroutines (private val userDao: UserDao) {
     suspend fun save(user: User) = withContext(Dispatchers.IO){
         userDao.save(user.toEntity())
     }
-    suspend fun delte(user: User) = withContext(Dispatchers.IO){
+    suspend fun delete(user: User) = withContext(Dispatchers.IO){
         userDao.delete(user.toEntity())
     }
     suspend fun getUsers(): LiveData<List<User>> = withContext(Dispatchers.IO){
